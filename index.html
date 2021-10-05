@@ -5,39 +5,232 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timezones</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.4/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="assets/css/uikit.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <title>Time zones</title>
 </head>
 
 <body>
+    <nav class="uk-navbar-container uk-margin" uk-navbar="mode: click">
+        <div class="uk-navbar-left">
 
-    <h1>What's The Time?</h1>
+            <ul class="uk-navbar-nav">
+                <li class="uk-active"><a href="#">Time Zones</a></li>
+
+                <li><a href="#">Sunrise/Sunset</a></li>
+            </ul>
+
+            <div class="uk-position-center-right">
+                <span uk-icon="icon: clock"></span>
+                Local Time:
+                <span id="local-time"></span>
+            </div>
+        </div>
+        </div>
+
+    </nav>
 
     
-    <h2>Asia</h2>
+    <div class="uk-flex">
+        
+        <table class="uk-table uk-table-striped uk-table-hover uk-table-divider">
+            <thead>
+                <tr>
+                    <th><span uk-icon="icon: location"></span> &nbsp; Country / City</th>
+                    <th><span uk-icon="icon: clock"></span> &nbsp; Time</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <!-- America Start here -->
+                <tr>
+                    <td>America / Boise</td>
+                    <td>
+                        9:00 am &nbsp;
+                        <span uk-icon="icon: plus-circle"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>America / Buenos_Aires</td>
+                    <td>
+                        9:00 am &nbsp;
+                        <span uk-icon="icon: plus-circle"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>America / Chicago</td>
+                    <td>
+                        9:00 am &nbsp;
+                        <span uk-icon="icon: plus-circle"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>America / Lima</td>
+                    <td>
+                        9:00 am &nbsp;
+                        <span uk-icon="icon: plus-circle"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>America / Los Angeles</td>
+                    <td>
+                        9:00 am &nbsp;
+                        <span uk-icon="icon: plus-circle"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>America / New York</td>
+                    <td>
+                        9:00 am &nbsp;
+                        <span uk-icon="icon: plus-circle"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>America / Puerto_Rico</td>
+                    <td>
+                        9:00 am &nbsp;
+                        <span uk-icon="icon: plus-circle"></span>
+                    </td>
+                </tr>
+
+                <!-- Europe start here -->
+                <tr>
+                    <td>Europe / Berlin</td>
+                    <td>
+                        9:00 am &nbsp;
+                        <span uk-icon="icon: plus-circle"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Europe / Bucharest</td>
+                    <td>
+                        9:00 am &nbsp;
+                        <span uk-icon="icon: plus-circle"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Europe / London</td>
+                    <td>
+                        9:00 am &nbsp;
+                        <span uk-icon="icon: plus-circle"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Europe / Moscow</td>
+                    <td>
+                        9:00 am &nbsp;
+                        <span uk-icon="icon: plus-circle"></span>
+                    </td>
+                </tr>
+
+                <!-- Africa start here -->
+                <tr>
+                    <td>Africa / Algiers</td>
+                    <td>
+                        9:00 am &nbsp;
+                        <span uk-icon="icon: plus-circle"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Africa / Bissau</td>
+                    <td>
+                        9:00 am &nbsp;
+                        <span uk-icon="icon: plus-circle"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Africa / Cairo</td>
+                    <td>
+                        9:00 am &nbsp;
+                        <span uk-icon="icon: plus-circle"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Africa / Juba</td>
+                    <td>
+                        9:00 am &nbsp;
+                        <span uk-icon="icon: plus-circle"></span>
+                    </td>
+                </tr>
+
+                <!-- Asia start here -->
+                <tr>
+                    <td>Asia / Dubai</td>
+                    <td>
+                        9:00 am &nbsp;
+                        <span uk-icon="icon: plus-circle"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Asia / Hong Kong</td>
+                    <td>
+                        9:00 am &nbsp;
+                        <span uk-icon="icon: plus-circle"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Asia / Mumbai</td>
+                    <td>
+                        9:00 am &nbsp;
+                        <span uk-icon="icon: plus-circle"></span>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+
+        <div class="uk-margin-medium-left uk-card uk-card-default uk-card-body uk-width-1-2@m">
+            <h3 class="uk-card-title">
+                Favorite
+                <span uk-icon="icon: heart"></span>
+            </h3>
+            <ul class="uk-list">
+
+                <a class="uk-link-toggle" href="#">
+                    <ul class="uk-list">
+                        <li>
+                            <span class="uk-link-heading"></span><span uk-icon="icon: location"></span>&nbsp;New York
+                            &nbsp; <span uk-icon="icon: clock"></span>&nbsp; 9:00 AM </span>
+                        </li>
+                    </ul>
+                </a>
+                <br>
+                <a class="uk-link-toggle" href="#">
+                    <ul class="uk-list">
+                        <li>
+                            <span class="uk-link-heading"></span><span uk-icon="icon: location"></span>&nbsp;New York
+                            &nbsp; <span uk-icon="icon: clock"></span>&nbsp; 9:00 AM </span>
+                        </li>
+                    </ul>
+                </a>
+                <br>
+                <a class="uk-link-toggle" href="#">
+                    <ul class="uk-list">
+                        <li>
+                            <span class="uk-link-heading"></span><span uk-icon="icon: location"></span>&nbsp;New York
+                            &nbsp; <span uk-icon="icon: clock"></span>&nbsp; 9:00 AM </span>
+                        </li>
+                    </ul>
+                </a>
+                <br>
+            </ul>
+
+            <!-- <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua.</p> -->
+        </div>
+
+    </div>
 
 
 
-    <h2>Africa</h2>
+    <script src="assets/js/uikit.min.js"></script>
+    <script src="assets/js/uikit-icons.min.js"></script>
+    <script src="script.js"></script>
 
-
-
-    <h2>North America</h2>
-
-
-
-    <h2>South America</h2>
-
-
-
-    <h2>Antartica</h2>
-
-
-
-    <h2>Europe</h2>
-
-
-
-    <h2>Australia</h2>
 </body>
 
 </html>
