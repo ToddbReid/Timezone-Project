@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+//HEAD
 (async () => {
     const now = new Date();
     const data = await
@@ -40,7 +40,7 @@ const eu = [
     fetch('http://worldtimeapi.org/api/timezone/Europe/Moscow').then(response => response.json()),
     fetch('http://worldtimeapi.org/api/timezone/Europe/Bucharest').then(response => response.json()),
 ]
-=======
+
 var localTime = new Date().toLocaleString();
 var localTimeDiv = document.querySelector('#local-time');
 localTimeDiv.innerHTML = localTime;
@@ -109,4 +109,4 @@ setInterval(runFunction, 1000);
 //     fetch('http://worldtimeapi.org/api/timezone/Europe/Berlin').then(response => response.json()),
 //     fetch('http://worldtimeapi.org/api/timezone/Europe/Moscow').then(response => response.json()),
 //     fetch('http://worldtimeapi.org/api/timezone/Europe/Bucharest').then(response => response.json())]
->>>>>>> 6d188d749567d34ddeb8e049a4bb6fbbc27a620f
+// 6d188d749567d34ddeb8e049a4bb6fbbc27a620f
