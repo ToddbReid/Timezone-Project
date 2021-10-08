@@ -1,8 +1,3 @@
-
-
-
-
-
 var localTime = new Date().toLocaleString();
 var localTimeDiv = document.querySelector('#local-time');
 localTimeDiv.innerHTML = localTime;
@@ -21,6 +16,7 @@ setInterval(runFunction, 1000);
     const now = new Date();
     const data = await
         Promise.all([
+            fetch('http://worldtimeapi.org/api/ip').then(response => response.json()),
             fetch('http://worldtimeapi.org/api/timezone/America/Boise').then(response => response.json()),
             fetch('http://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Aires').then(response => response.json()),
             fetch('http://worldtimeapi.org/api/timezone/America/Chicago').then(response => response.json()),
@@ -63,9 +59,6 @@ setInterval(runFunction, 1000);
 
 })();
 
-
-
-
  const eu = [
     fetch('http://worldtimeapi.org/api/timezone/Europe/London').then(response => response.json()),
      fetch('http://worldtimeapi.org/api/timezone/Europe/Berlin').then(response => response.json()),
@@ -103,3 +96,17 @@ const af = [
     fetch('http://worldtimeapi.org/api/timezone/Africa/Juba').then(response => response.json()),
     fetch('http://worldtimeapi.org/api/timezone/Africa/Bissau').then(response => response.json()),
 ]
+
+
+fetch( 'https://api.ipgeolocation.io/timezone?apiKey=5de9a378494b44eb845ca1cfebe69a19&tz=America/Los_Angeles').then(response => response.json());
+  
+console.log(fetch( 'https://api.ipgeolocation.io/timezone?apiKey=5de9a378494b44eb845ca1cfebe69a19&tz=America/Los_Angeles').then(response => response.json()));
+    
+var timeDiv = document.querySelectorAll('.time-div')
+    console.log(timeDiv)
+
+    for (var i = 0; i < timeDiv.length; i++) {
+        var time = data;
+        console.log(time[i].datetime);
+        timeDiv.textContents = time[i].datetime;
+    }
