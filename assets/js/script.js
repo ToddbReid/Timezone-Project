@@ -12,57 +12,37 @@ var runFunction = function () {
 setInterval(runFunction, 1000);
 
 
-(async () => {
-    const now = new Date();
-    const data = await
-        Promise.all([
-            fetch('http://worldtimeapi.org/api/timezone/America/Boise').then(response => response.json()),
-            fetch('http://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Aires').then(response => response.json()),
-            fetch('http://worldtimeapi.org/api/timezone/America/Chicago').then(response => response.json()),
-            fetch('http://worldtimeapi.org/api/timezone/America/Lima').then(response => response.json()),
-            fetch('http://worldtimeapi.org/api/timezone/America/Los_Angeles').then(response => response.json()),
-            fetch('http://worldtimeapi.org/api/timezone/America/New_York').then(response => response.json()),
-            fetch('http://worldtimeapi.org/api/timezone/America/Puerto_Rico').then(response => response.json()),
-            fetch('http://worldtimeapi.org/api/timezone/Europe/Berlin').then(response => response.json()),
-            fetch('http://worldtimeapi.org/api/timezone/Europe/Bucharest').then(response => response.json()),
-            fetch('http://worldtimeapi.org/api/timezone/Europe/London').then(response => response.json()),
-            fetch('http://worldtimeapi.org/api/timezone/Europe/Moscow').then(response => response.json()),
-            fetch('http://worldtimeapi.org/api/timezone/Africa/Algiers').then(response => response.json()),
-            fetch('http://worldtimeapi.org/api/timezone/Africa/Bissau').then(response => response.json()),
-            fetch('http://worldtimeapi.org/api/timezone/Africa/Cairo').then(response => response.json()),
-            fetch('http://worldtimeapi.org/api/timezone/Africa/Juba').then(response => response.json()),
-            fetch('http://worldtimeapi.org/api/timezone/Asia/Dubai').then(response => response.json()),
-            fetch('http://worldtimeapi.org/api/timezone/Asia/Hong_Kong').then(response => response.json()),
-            fetch('http://worldtimeapi.org/api/timezone/Asia/Kolkata').then(response => response.json()),
-            fetch('http://worldtimeapi.org/api/timezone/Asia/Tokyo').then(response => response.json()),
-            fetch('http://worldtimeapi.org/api/timezone/Australia/Darwin').then(response => response.json()),
-            fetch('http://worldtimeapi.org/api/timezone/Australia/Sydney').then(response => response.json()),
 
-        ]);
+var searchInput = document.querySelector('.uk-search-input');
+var searchButton = document.querySelector('.uk-search-icon-flip');
 
-    // for (const time of data) {
-    //     const div = document.createElement("div");
-    //     div.textContent = time.datetime;
-    //     document.body.appendChild(div);
 
-    // }
+var apiKey = "da4235e5d6d2446daff793df7de8cf76"
 
-    var timeDiv = document.querySelectorAll('.time-div')
-    console.log(timeDiv)
+var getCurrentTime = function (str) {
+    var queryURL = "https://api.ipgeolocation.io/timezone?apiKey=" + apiKey + "&tz=" + str;
 
-    for (var i = 0; i < timeDiv.length; i++) {
-        var time = data;
-        console.log(time[i].datetime);
-        timeDiv.textContents = time[i].datetime;
-    }
+    fetch(queryURL)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
 
-})();
+            var cityNameDiv = document.querySelector('.city-name');
+            cityNameDiv.innerHTML = data.timezone;
+
+            var timeDiv = document.querySelector('.time-div');
+            timeDiv.innerHTML = data.date + " " + data.time_12;
+
+        })
+
+}
 
 
 
-
-// const eu = [
-//     fetch('http://worldtimeapi.org/api/timezone/Europe/London').then(response => response.json()),
-//     fetch('http://worldtimeapi.org/api/timezone/Europe/Berlin').then(response => response.json()),
-//     fetch('http://worldtimeapi.org/api/timezone/Europe/Moscow').then(response => response.json()),
-//     fetch('http://worldtimeapi.org/api/timezone/Europe/Bucharest').then(response => response.json())]
+searchButton.addEventListener("click", (event) => {
+    event.preventDefault()
+    var cityName = searchInput.value;
+    getCurrentTime(cityName)
+});
