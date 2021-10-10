@@ -20,6 +20,7 @@ var searchButton = document.querySelector('.uk-search-icon-flip');
 
 var geoApiKey = "47cd34a65d916a8b8d24d64498166130"
 
+
 var getLocation = function (str) {
 
     var geoQueryURL = "http://api.positionstack.com/v1/forward?access_key=" + geoApiKey + "&query=" + str;
@@ -37,30 +38,29 @@ var getLocation = function (str) {
             var lat = data.data[0].latitude;
             var lon = data.data[0].longitude;
 
+                    var apiKey = "da4235e5d6d2446daff793df7de8cf76"
+                    var sunriseQueryURL = "https://api.ipgeolocation.io/astronomy?apiKey=" + apiKey + "&lat=" + lat + "&long=" + lon;
 
-            var sunriseQueryURL = "https://api.sunrise-sunset.org/json?lat=" + lat + "&lng=" + lon + "&date=today"
-            fetch(sunriseQueryURL)
-                .then(function (response) {
-                    return response.json();
+                    fetch(sunriseQueryURL)
+                        .then(function (response) {
+                            return response.json();
+                        })
+                        .then(function (data) {
+                            console.log(data)
+
+                            var sunriseDiv = document.querySelector('.sunrise');
+                            sunriseDiv.innerHTML = data.sunrise;
+
+                            var sunsetDiv = document.querySelector('.sunset');
+                            sunsetDiv.innerHTML = data.sunset;
+                    
+
                 })
-                .then(function (data) {
-                    console.log(data)
-
-                    var sunriseDiv = document.querySelector('.sunrise');
-                    sunriseDiv.innerHTML = data.results.sunrise;
-
-                    var sunsetDiv = document.querySelector('.sunset');
-                    sunsetDiv.innerHTML = data.results.sunset;
-
-
-                })
-
-
-
         })
 
 
 }
+
 
 
 
