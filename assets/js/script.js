@@ -15,6 +15,10 @@ setInterval(runFunction, 1000);
 
 var searchInput = document.querySelector('.uk-search-input');
 var searchButton = document.querySelector('.uk-search-icon-flip');
+var saveButton = document.querySelector('.save-btn');
+
+var favoriteCities = JSON.parse(localStorage.getItem("favorite"))||[ ] ;
+var favoriteList = document.getElementById('favorite-list');
 
 
 var apiKey = "da4235e5d6d2446daff793df7de8cf76"
@@ -46,3 +50,36 @@ searchButton.addEventListener("click", (event) => {
     var cityName = searchInput.value;
     getCurrentTime(cityName)
 });
+
+
+function saveToLocalStorage() {
+    
+    var searchInput = document.querySelector('.uk-search-input');
+    var cityName = searchInput.value;
+
+    favoriteCities.push(cityName);
+    
+    localStorage.setItem("favorite", JSON.stringify(favoriteCities));
+    
+    renderFavorites();
+}
+
+function renderFavorites (){
+    favoriteList.innerHTML = "";
+    for(var i=0; i < favoriteCities.length; i++){
+        var liEl = document.createElement('li');
+        liEl.textContent = favoriteCities[i];
+        favoriteList.append(liEl);
+    }
+}
+
+function favoriteClick(event){
+    console.log(event.target.textContent);
+
+    getCurrentTime(event.target.textContent);
+}
+
+renderFavorites();
+saveButton.addEventListener("click", saveToLocalStorage);
+
+favoriteList.addEventListener("click", favoriteClick);

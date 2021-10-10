@@ -54,14 +54,12 @@ var getLocation = function (str) {
                             var sunsetDiv = document.querySelector('.sunset');
                             sunsetDiv.innerHTML = data.sunset;
                     
-
+                            
                 })
         })
 
 
 }
-
-
 
 
 searchButton.addEventListener("click", (event) => {
