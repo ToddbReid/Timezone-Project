@@ -17,7 +17,7 @@ var searchInput = document.querySelector('.uk-search-input');
 var searchButton = document.querySelector('.uk-search-icon-flip');
 var saveButton = document.querySelector('.save-btn');
 
-var favoriteCities = JSON.parse(localStorage.getItem("favorite"))||[ ] ;
+var favoriteCities = JSON.parse(localStorage.getItem("favorite")) || [] ;
 var favoriteList = document.getElementById('favorite-list');
 
 
@@ -64,7 +64,7 @@ function saveToLocalStorage() {
     renderFavorites();
 }
 
-function renderFavorites (){
+function renderFavorites() {
     favoriteList.innerHTML = "";
     for(var i=0; i < favoriteCities.length; i++){
         var liEl = document.createElement('li');
