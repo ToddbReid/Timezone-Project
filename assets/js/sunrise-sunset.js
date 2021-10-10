@@ -19,6 +19,7 @@ var searchButton = document.querySelector('.uk-search-icon-flip');
 
 
 var geoApiKey = "47cd34a65d916a8b8d24d64498166130"
+var sunriseApiKey = "da4235e5d6d2446daff793df7de8cf76"
 
 var getLocation = function (str) {
 
@@ -37,11 +38,8 @@ var getLocation = function (str) {
             var lat = data.data[0].latitude;
             var lon = data.data[0].longitude;
 
-            console.log(lat);
-            console.log(lon);
 
-
-            var sunriseQueryURL = "https://api.sunrise-sunset.org/json?lat=" + lat + "&lng=" + lon;
+            var sunriseQueryURL = "https://api.ipgeolocation.io/astronomy?apiKey=" + sunriseApiKey + lat + "&long=" + lon;
             fetch(sunriseQueryURL)
                 .then(function (response) {
                     return response.json();
@@ -58,14 +56,7 @@ var getLocation = function (str) {
 
                 })
 
-
-
         })
-
-
-
-
-
 
 }
 
