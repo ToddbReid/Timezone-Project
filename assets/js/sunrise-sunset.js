@@ -29,7 +29,7 @@ var geoApiKey = "47cd34a65d916a8b8d24d64498166130"
 
 var getLocation = function (str) {
 
-    var geoQueryURL = "http://api.positionstack.com/v1/forward?access_key=" + geoApiKey + "&query=" + str;
+    var geoQueryURL = "https://api.positionstack.com/v1/forward?access_key=" + geoApiKey + "&query=" + str;
 
     fetch(geoQueryURL)
         .then(function (response) {
