@@ -22,12 +22,12 @@ var favoriteCitiesSunrise = JSON.parse(localStorage.getItem("favorite-sunrise"))
 var favoriteList = document.getElementById('favorite-list-sunrise');
 
 
-var geoApiKey = "47cd34a65d916a8b8d24d64498166130"
+var geoApiKey = "da4235e5d6d2446daff793df7de8cf76"
 
 
 var getLocation = function (str) {
 
-    var geoQueryURL = "https://api.positionstack.com/v1/forward?access_key=" + geoApiKey + "&query=" + str;
+    var geoQueryURL = "https://api.ipgeolocation.io/astronomy?apiKey=" + geoApiKey + "&location=" + str;
 
     fetch(geoQueryURL)
         .then(function (response) {
@@ -37,10 +37,10 @@ var getLocation = function (str) {
             console.log(data)
 
             var cityNameDiv = document.querySelector('.city-name');
-            cityNameDiv.innerHTML = data.data[0].name;
+            cityNameDiv.innerHTML = searchInput.value;
 
-            var lat = data.data[0].latitude;
-            var lon = data.data[0].longitude;
+            var lat = data.location.latitude;
+            var lon = data.location.longitude;
 
                     var apiKey = "da4235e5d6d2446daff793df7de8cf76"
                     var sunriseQueryURL = "https://api.ipgeolocation.io/astronomy?apiKey=" + apiKey + "&lat=" + lat + "&long=" + lon;
