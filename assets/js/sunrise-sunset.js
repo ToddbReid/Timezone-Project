@@ -16,10 +16,12 @@ setInterval(runFunction, 1000);
 
 var searchInput = document.querySelector('.uk-search-input');
 var searchButton = document.querySelector('.uk-search-icon-flip');
+
 var saveButton = document.querySelector('.save-btn');
 
 var favoriteCitiesSunrise = JSON.parse(localStorage.getItem("favorite-sunrise")) || [];
 var favoriteList = document.getElementById('favorite-list-sunrise');
+
 
 
 var geoApiKey = "da4235e5d6d2446daff793df7de8cf76"
@@ -41,6 +43,7 @@ var getLocation = function (str) {
 
             var lat = data.location.latitude;
             var lon = data.location.longitude;
+
 
                     var apiKey = "da4235e5d6d2446daff793df7de8cf76"
                     var sunriseQueryURL = "https://api.ipgeolocation.io/astronomy?apiKey=" + apiKey + "&lat=" + lat + "&long=" + lon;
@@ -66,11 +69,13 @@ var getLocation = function (str) {
 }
 
 
+
 searchButton.addEventListener("click", (event) => {
     event.preventDefault()
     var cityName = searchInput.value;
     getLocation(cityName)
 });
+
 
 function saveToLocalStorage(){
     var searchInput = document.querySelector('.uk-search-input');
@@ -102,3 +107,5 @@ renderFavorites();
 saveButton.addEventListener("click", saveToLocalStorage);
 
 favoriteList.addEventListener("click", favoriteClick);
+
+
