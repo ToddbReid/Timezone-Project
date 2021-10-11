@@ -26,6 +26,7 @@ var apiKey = "da4235e5d6d2446daff793df7de8cf76"
 var getCurrentTime = function (str) {
     var queryURL = "https://api.ipgeolocation.io/timezone?apiKey=" + apiKey + "&tz=" + str;
 
+
     fetch(queryURL)
         .then(function (response) {
             return response.json();
@@ -49,6 +50,7 @@ searchButton.addEventListener("click", (event) => {
     event.preventDefault()
     var cityName = searchInput.value;
     getCurrentTime(cityName)
+
 });
 
 

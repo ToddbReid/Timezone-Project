@@ -19,7 +19,7 @@ var searchButton = document.querySelector('.uk-search-icon-flip');
 var saveButton = document.querySelector('.save-btn');
 
 var favoriteCitiesSunrise = JSON.parse(localStorage.getItem("favorite-sunrise")) || [];
-var favoriteListDiv = document.getElementById('favorite-list-sunrise');
+var favoriteList = document.getElementById('favorite-list-sunrise');
 
 
 var geoApiKey = "47cd34a65d916a8b8d24d64498166130"
@@ -80,15 +80,15 @@ function saveToLocalStorage(){
 
     localStorage.setItem("favorite-sunrise", JSON.stringify(favoriteCitiesSunrise));
 
-    renderSunriseFavorites();
+    renderFavorites();
 }
 
-function renderSunriseFavorites() {
-    favoriteListDiv.innerHTML = "";
+function renderFavorites() {
+    favoriteList.innerHTML = "";
     for(var i=0; i < favoriteCitiesSunrise.length; i++){
         var liEl = document.createElement('li');
         liEl.textContent = favoriteCitiesSunrise[i];
-        favoriteListDiv.append(liEl);
+        favoriteList.append(liEl);
     }
 }
 
@@ -98,7 +98,7 @@ function favoriteClick(event){
     getLocation(event.target.textContent);
 }
 
-renderSunriseFavorites();
+renderFavorites();
 saveButton.addEventListener("click", saveToLocalStorage);
 
-favoriteListDiv.addEventListener("click", favoriteClick);
+favoriteList.addEventListener("click", favoriteClick);
